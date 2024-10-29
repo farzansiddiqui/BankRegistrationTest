@@ -24,26 +24,38 @@
         android:fitsSystemWindows="true"
         tools:context=".MainActivity">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/image_show_on_display"
+            app:layout_constraintStart_toStartOf="@id/textView_title"
+            android:src="@drawable/image_"/>
+
+
+
         <TextView
             android:id="@+id/textView_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="32dp"
+            android:layout_margin="16dp"
             android:fontFamily="@font/poppins"
             android:gravity="start|center_horizontal"
             android:text="@string/the_few_steps_"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"/>
 
 
         <TextView
             android:id="@+id/panNumberTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto"
             android:gravity="start|center_horizontal"
             android:text="@string/pan_number"
