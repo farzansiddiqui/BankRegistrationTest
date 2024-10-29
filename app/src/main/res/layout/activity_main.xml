@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.siddiqui.bankregistrationtest.viewmodel.BankRegistrationViewModel" />
+
+        <import type="android.app.Activity" />
+
+        <import type="androidx.databinding.DataBindingUtil" />
+
+        <import type="androidx.databinding.ViewDataBinding" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:fontFamily="@font/poppins"
+            android:gravity="start|center_horizontal"
+            android:text="@string/the_few_steps_"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/panNumberTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="start|center_horizontal"
+            android:text="@string/pan_number"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="@id/enter_pan_number_editText"
+            app:layout_constraintStart_toStartOf="@id/enter_pan_number_editText"
+            app:layout_constraintTop_toBottomOf="@id/textView_title" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/enter_pan_number_editText"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="2dp"
+            app:expandedHintEnabled="true"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/panNumberTextView">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/panNuberEditext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_pan_number"
+                android:inputType="text"
+                android:singleLine="true"
+                android:text="@={viewModel.panNumber}" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/BirthDateTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="start|center_horizontal"
+            android:text="@string/birthdate"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="@id/enter_pan_number_editText"
+            app:layout_constraintStart_toStartOf="@id/enter_pan_number_editText"
+            app:layout_constraintTop_toBottomOf="@id/enter_pan_number_editText"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/BirthDateTextView"
+            app:layout_constraintStart_toStartOf="@id/BirthDateTextView"
+            app:layout_constraintTop_toBottomOf="@id/BirthDateTextView">
+
+
+            <EditText
+                android:id="@+id/dayEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="0.5"
+                android:text="@={viewModel.day}"
+                android:background="@drawable/editext_bg"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="2"
+                android:singleLine="true" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="0.6"
+                android:id="@+id/monthEditText"
+                android:text="@={viewModel.month}"
+                android:background="@drawable/editext_bg"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="2"
+                android:singleLine="true" />
+
+
+            <EditText
+                android:id="@+id/yearEditTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:text="@={viewModel.year}"
+                android:background="@drawable/editext_bg"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="4"
+                android:singleLine="true" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="start|center_horizontal"
+            android:text="@string/privacy_read"
+            app:layout_constraintVertical_bias="1"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@id/submit_Btn"
+            app:layout_constraintEnd_toEndOf="@id/submit_Btn"
+            app:layout_constraintStart_toStartOf="@id/submit_Btn"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit_Btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:text="@string/next"
+            android:textAllCaps="true"
+            app:cornerRadius="8dp"
+            android:enabled="@{viewModel.isFormValid}"
+            app:layout_constraintBottom_toTopOf="@id/_have_pan_textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/_have_pan_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:onClick="@{(v)->((Activity)(((ViewDataBinding)DataBindingUtil.findBinding(v)).lifecycleOwner)).finish()}"
+            android:text="@string/i_don_t_have_pan"
+            android:textColor="#673AB7"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
